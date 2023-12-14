@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <style>
+        body {
+            margin: 0;
+padding: 0;
+background-image: url('photo2.jpg');
+background-size: cover; /* Ensures the image covers the entire background */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat; /* Prevents the image from repeating */
+height: 100vh; /* Makes the background cover the full height of the viewport */
+display: flex;
+justify-content: center;
+align-items: center;
+ /* Optional: Set text color for better visibility */
+  
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        #reminderContainer {
+            display: none;
+            margin-top: 10px;
+            color: #4caf50; /* Reminder color */
+        }
+    </style>
+</head>
+<body>
+
+    <form id="moodForm">
+        <h2>Mood Tracker</h2>
+
+        <label>Select your mood(s):</label>
+        <label><input type="checkbox" name="mood" value="happy">Happy 😊</label>
+        <label><input type="checkbox" name="mood" value="sad">Sad 😢</label>
+        <label><input type="checkbox" name="mood" value="angry">Angry 😡</label>
+        <label><input type="checkbox" name="mood" value="calm">Calm 😌</label>  
+
+        <button type="button" onclick="trackMood()">Track Mood</button>
+
+        <div id="result"></div>
+        <div id="reminderContainer"> <!-- Container for displaying the reminder -->
+            <p id="reminderMessage"></p>
+        </div>
+    </form>
+    
+    <script>
+        function trackMood() {
+            var selectedMoods = [];
+            var checkboxes = document.querySelectorAll('input[name="mood"]:checked');
+            
+            checkboxes.forEach(function(checkbox) {
+                selectedMoods.push(checkbox.value);
+            });
+
+            // Display the result
+            var resultContainer = document.getElementById('result');
+            if (selectedMoods.length > 0) {
+                resultContainer.innerHTML = `<p>Your mood(s): ${selectedMoods.join(', ')}</p>`;
+            } else {
+                resultContainer.innerHTML = '<p>Please select a mood.</p>';
+            }
+
+            // Display a reminder for each selected mood
+            var reminderContainer = document.getElementById('reminderContainer');
+            var reminderMessage = document.getElementById('reminderMessage');
+
+            if (selectedMoods.length > 0) {
+                var reminder="remember:" ;
+                selectedMoods.forEach(function(mood) {
+                    switch (mood) {
+                        case 'happy':
+                            reminder += "Yeah......! thats what needed ❤️ keep embracing those positive vibes and live the moment👍👍👍";
+                            break;
+                        case 'sad':
+                            reminder += "Its okay to have tough days! I'm here to listen and offer support......😁";
+                            break;
+                        case 'angry':
+                            reminder += "Take a deep breath and stay calm. Try to identify the source of your frustration! ✌️✌️✌️";
+                            break;
+                        case 'calm':
+                            reminder += "Embrace the  tranquility.Please continue your positive ";
+                            break;
+                        // Add more cases for additional moods as needed
+                    }
+                });
+                reminderMessage.textContent = reminder;
+                reminderContainer.style.display = 'block';
+            } else {
+                reminderContainer.style.display = 'none';
+            }
+        }
+        
+    
+    </script>
+
+</body>
+</html>
