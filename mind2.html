@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journaling Page</title>
+    <style>
+        body {
+            margin: 0;
+padding: 0;
+background-image: url('photo3.jpg');
+background-size: cover; /* Ensures the image covers the entire background */
+background-position: center; /* Centers the image */
+background-repeat: no-repeat; /* Prevents the image from repeating */
+height: 100vh; /* Makes the background cover the full height of the viewport */
+display: flex;
+justify-content: center;
+align-items: center;
+        }
+
+        .journal-container {
+            background-color:#B47EDE;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="journal-container">
+    <h2>Journaling</h2>
+    <label for="moodText">How's your mood today?</label>
+    <textarea id="moodText" placeholder="Write about your mood..." required></textarea>
+
+    <button onclick="saveJournal()">Save Journal</button>
+</div>
+
+<script>
+    function saveJournal() {
+        var moodText = document.getElementById('moodText').value;
+
+        // You can implement further logic here, such as saving to a database or performing other actions.
+
+        alert('Journal saved:\n' + moodText);
+    }
+</script>
+
+</body>
+</html>
