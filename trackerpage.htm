@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #49aabd;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="moodForm">
+        <label for="mood">what's the emotional forecast today?</label>
+        
+        <button type="button" onclick="submitMood('happy')">Happy 😀</button>
+        <button type="button" onclick="submitMood('sad')">Sad 😢</button>
+        <button type="button" onclick="submitMood('calm')">Calm 😌</button>
+        <button type="button" onclick="submitMood('excited')">Excited 😃</button>
+        <button type="button" onclick="submitMood('angry')">Angry 😠</button>
+    </form>
+
+    <script>
+        function submitMood(selectedMood) {
+            // You can send the selected mood to the backend here (e.g., using AJAX)
+
+            // For now, just log the selected mood to the console
+            console.log("Mood submitted:", selectedMood);
+        }
+    </script>
+
+</body>
+</html>
