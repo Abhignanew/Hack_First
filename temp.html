@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration and Login</title>
     <style>
-        body {
+               body {
             margin: 0;
 padding: 0;
 background-image: url('photo1.jpg');
@@ -19,6 +17,7 @@ display: flex;
 justify-content: center;
 align-items: center;
         }
+
 
         form {
             background-color: #fff;
@@ -67,15 +66,15 @@ align-items: center;
 <body>
 
 <div id="login-form">
-    <form id="loginForm">
+    <form id="loginForm" action="login.php" method="post">
         <h2>Login</h2>
         <label for="loginUsername">Username:</label>
-        <input type="text" id="loginUsername" required>
+        <input type="text" id="loginUsername" required name="User_name">
 
         <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" required>
+        <input type="password" id="loginPassword" required name="pass">
 
-        <button type="button" onclick="login()">Login</button>
+        <button type="submit" onclick="login()">Login</button>
 
         <div class="toggle-form">
             Don't have an account? <a onclick="toggleForm('register')">Register</a>
@@ -84,23 +83,20 @@ align-items: center;
 </div>
 
 <div id="register-form" style="display: none;">
-    <form id="registerForm">
+    <form action="Regi.php" method="post" id="registerForm">
         <h2>Register</h2>
         <label for="registerUsername">Username:</label>
-        <input type="text" id="registerUsername" required>
+        <input type="text" id="registerUsername" required name="User_name">
 
         <label for="registerPassword">Password:</label>
-        <input type="password" id="registerPassword" required>
+        <input type="password" id="registerPassword" required name="pass">
 
-        <button type="button" onclick="register()">Register</button>
-
+        <button type="submit" onclick="register()">Register</button>
         <div class="toggle-form">
             Already have an account? <a onclick="toggleForm('login')">Login</a>
         </div>
     </form>
 </div>
-<button onclick="redirectToNextPage()">Click</button>
-
 
 <script>
     function toggleForm(formType) {
@@ -120,6 +116,7 @@ align-items: center;
         // Perform login validation (dummy example, replace with actual logic)
         if (username === 'user' && password === 'pass') {
             alert('Login successful!');
+            window.location.href = "http://localhost/Hack_First-1/page2.html";
         } else {
             alert('Invalid username or password');
         }
@@ -129,14 +126,8 @@ align-items: center;
         var username = document.getElementById('registerUsername').value;
         var password = document.getElementById('registerPassword').value;
 
-        // Perform registration logic (dummy example, replace with actual logic)
         alert('Registration successful!');
         toggleForm('login'); // Switch to the login form after registration
-    }
-    function redirectToNextPage() {
-            // Redirect immediately to another page
-            window.location.href = "http://127.0.0.1:5500/temp2.html";
-    
     }
 </script>
 
